@@ -1,2 +1,68 @@
 # GPU_PCIe
 Design Space Exploration of GPU Accelerated Cluster Systems for Optimal Data Transfer Using PCIe Bus
+
+- micro_bench_pin_calB.cu
+  - micro benchmark using pinned memorory allocation
+  - calculation bound
+  - contains 3 different kernels
+      - no cuda stream
+      - cuda stream with type I scheduling scheme
+      - cuda stream with type II scheduling scheme
+- micro_bench_pin_comB.cu
+  - micro benchmark using pinned memorory allocation
+  - communication bound
+  - contains 3 different kernels
+      - no cuda stream
+      - cuda stream with type I scheduling scheme
+      - cuda stream with type II scheduling scheme
+- micro_bench_pin_balB.cu
+  - micro benchmark using pinned memorory allocation
+  - balanced bound
+  - contains 3 different kernels
+      - no cuda stream
+      - cuda stream with type I scheduling scheme
+      - cuda stream with type II scheduling scheme
+
+- micro_bench_pageable_calB.cu
+  - micro benchmark using pageable memorory allocation
+  - calculation bound
+  - contains 3 different kernels
+      - no cuda stream
+      - cuda stream with type I scheduling scheme
+      - cuda stream with type II scheduling scheme
+- micro_bench_pageable_comB.cu
+  - micro benchmark using pageable memorory allocation
+  - communication bound
+  - contains 3 different kernels
+      - no cuda stream
+      - cuda stream with type I scheduling scheme
+      - cuda stream with type II scheduling scheme
+- micro_bench_pin_balB.cu
+  - micro benchmark using pageable memorory allocation
+  - balanced bound
+  - contains 3 different kernels
+      - no cuda stream
+      - cuda stream with type I scheduling scheme
+      - cuda stream with type II scheduling scheme
+
+- micro_bench_UM_calB.cu
+  - micro benchmark using unified memorory allocation
+  - calculation bound
+  - contains 3 different kernels
+      - no cuda stream
+      - cuda stream with type I scheduling scheme
+      - cuda stream with type II scheduling scheme
+- micro_bench_UM_comB.cu
+  - micro benchmark using unified memorory allocation
+  - communication bound
+  - contains 3 different kernels
+      - no cuda stream
+      - cuda stream with type I scheduling scheme
+      - cuda stream with type II scheduling scheme
+- micro_bench_UM_balB.cu
+  - micro benchmark using unified memorory allocation
+  - balanced bound
+  - contains 3 different kernels
+      - no cuda stream
+      - cuda stream with type I scheduling scheme
+      - cuda stream with type II scheduling scheme
