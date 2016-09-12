@@ -1,6 +1,8 @@
 # GPU_PCIe
 Design Space Exploration of GPU Accelerated Cluster Systems for Optimal Data Transfer Using PCIe Bus
 
+27 version of micro benchmark [1], with each making different design choices.
+
 - micro_bench_pin_calB.cu
   - micro benchmark using pinned memorory allocation
   - calculation bound
@@ -66,3 +68,6 @@ Design Space Exploration of GPU Accelerated Cluster Systems for Optimal Data Tra
       - no cuda stream
       - cuda stream with type I scheduling scheme
       - cuda stream with type II scheduling scheme
+
+[1] M. Harris, “How to overlap data transfers in CUDA C/C++,” Dec. 2012. [Online]. 
+Available: https://devblogs.nvidia.com/parallelforall/how-overlap-data-transfers-cuda-cc/
