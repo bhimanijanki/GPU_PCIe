@@ -5,9 +5,6 @@ Email: bhimanijanki@gmail.com
  */
 
 #include <stdio.h>
-
-// Convenience function for checking CUDA runtime API results
-// can be wrapped around any runtime API call. No-op in release builds.
 inline
 cudaError_t checkCuda(cudaError_t result)
 {
@@ -109,8 +106,6 @@ printf("Time for sequential transfer and execute (ms): %f\n", ms);
 printf("Time for kernel execute (ms): %f\n", msk);
 printf("Bytes for sequential transfer (bytes): %d\n", bytes);
   printf("  max error: %e\n", maxError(a, n));
- 
-  // asynchronous version 1: loop over {copy, kernel, copy}
   memset(a, 0, bytes);
   checkCuda( cudaEventRecord(startEvent,0) );
   for (int i = 0; i < nStreams* nStreams; ++i) {
@@ -126,10 +121,8 @@ printf("Bytes for sequential transfer (bytes): %d\n", bytes);
   checkCuda( cudaEventRecord(stopEvent, 0) );
   checkCuda( cudaEventSynchronize(stopEvent) );
   checkCuda( cudaEventElapsedTime(&ms, startEvent, stopEvent) );
-  printf("Time for asynchronous V1 transfer and execute (ms): %f\n", ms);
+  printf("Scheduling scheme type I transfer and execute (ms): %f\n", ms);
   printf("  max error: %e\n", maxError(a, n));
-  // asynchronous version 2: 
-  // loop over copy, loop over kernel, loop over copy
   memset(a, 0, bytes);
   checkCuda( cudaEventRecord(startEvent,0) );
   for (int i = 0; i < nStreams* nStreams; ++i)
@@ -154,7 +147,7 @@ printf("Bytes for sequential transfer (bytes): %d\n", bytes);
   checkCuda( cudaEventRecord(stopEvent, 0) );
   checkCuda( cudaEventSynchronize(stopEvent) );
   checkCuda( cudaEventElapsedTime(&ms, startEvent, stopEvent) );
-  printf("Time for asynchronous V2 transfer and execute (ms): %f\n", ms);
+  printf("Scheduling scheme type II transfer and execute (ms): %f\n", ms);
   printf("  max error: %e\n", maxError(a, n));
   printf("% Overlap (%): %f\n", (seq-ms)/seq*100);
   // cleanup
