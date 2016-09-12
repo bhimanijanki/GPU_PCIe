@@ -117,7 +117,7 @@ printf("Bytes for sequential transfer (bytes): %d\n", bytes);
   checkCuda( cudaEventRecord(stopEvent, 0) );
   checkCuda( cudaEventSynchronize(stopEvent) );
   checkCuda( cudaEventElapsedTime(&ms, startEvent, stopEvent) );
-  printf("Time for asynchronous V1 transfer and execute (ms): %f\n", ms+aloc);
+  printf("Scheduling scheme type I transfer and execute (ms): %f\n", ms+aloc);
   printf("  max error: %e\n", maxError(a, n));
   memset(a, 0, bytes);
   checkCuda( cudaEventRecord(startEvent,0) );
@@ -130,7 +130,7 @@ printf("Bytes for sequential transfer (bytes): %d\n", bytes);
   checkCuda( cudaEventRecord(stopEvent, 0) );
   checkCuda( cudaEventSynchronize(stopEvent) );
   checkCuda( cudaEventElapsedTime(&ms, startEvent, stopEvent) );
-  printf("Time for asynchronous V2 transfer and execute (ms): %f\n", ms+aloc);
+  printf("Scheduling scheme type II transfer and execute (ms): %f\n", ms+aloc);
   printf("  max error: %e\n", maxError(a, n));
   printf("% Overlap (%): %f\n", (seq-ms)/seq*100);
   // cleanup
